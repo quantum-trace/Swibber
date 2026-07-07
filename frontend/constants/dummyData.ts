@@ -1,0 +1,296 @@
+import {
+  VehicleTypeEnum,
+  OrderStatusEnum,
+  PaymentMethodEnum,
+  ServiceTypeEnum,
+  PackageTypeEnum,
+  MembershipTierEnum,
+  NotificationTypeEnum,
+  CuisineTypeEnum,
+  AddressTypeEnum,
+  TransactionTypeEnum,
+} from './enums';
+
+// ─── User Profile ───────────────────────────────────────────────────────────
+export const DUMMY_USER = {
+  id: 'usr_001',
+  name: 'Arjun Mehta',
+  email: 'arjun.mehta@email.com',
+  phone: '+91 98765 43210',
+  avatarEmoji: '👨',
+  membershipTier: MembershipTierEnum.GOLD,
+  rewardPoints: 3_240,
+  walletBalance: 1_850.0,
+  cashback: 240.0,
+  totalRides: 128,
+  totalOrders: 67,
+  totalParcels: 23,
+  referralCode: 'ARJUN2024',
+  createdAt: '2022-03-15',
+};
+
+// ─── Saved Addresses ─────────────────────────────────────────────────────────
+export const DUMMY_ADDRESSES = [
+  {
+    id: 'addr_001',
+    type: AddressTypeEnum.HOME,
+    label: 'Home',
+    address: '14B, Sea Breeze Apartments, Bandra West',
+    city: 'Mumbai',
+    pincode: '400050',
+    lat: 19.0596,
+    lng: 72.8295,
+    isDefault: true,
+  },
+  {
+    id: 'addr_002',
+    type: AddressTypeEnum.WORK,
+    label: 'Work',
+    address: 'Level 12, One BKC, Bandra Kurla Complex',
+    city: 'Mumbai',
+    pincode: '400051',
+    lat: 19.0655,
+    lng: 72.8676,
+    isDefault: false,
+  },
+  {
+    id: 'addr_003',
+    type: AddressTypeEnum.OTHER,
+    label: "Mom's Place",
+    address: '7, Rose Garden Society, Andheri West',
+    city: 'Mumbai',
+    pincode: '400053',
+    lat: 19.136,
+    lng: 72.8296,
+    isDefault: false,
+  },
+  {
+    id: 'addr_004',
+    type: AddressTypeEnum.OTHER,
+    label: 'Gym',
+    address: "Gold's Gym, Linking Road, Bandra",
+    city: 'Mumbai',
+    pincode: '400050',
+    lat: 19.0548,
+    lng: 72.8302,
+    isDefault: false,
+  },
+];
+
+// ─── Restaurants ─────────────────────────────────────────────────────────────
+export const DUMMY_RESTAURANTS = [
+  {
+    id: 'rest_001',
+    name: 'Biryani Blues',
+    cuisine: CuisineTypeEnum.INDIAN,
+    cuisineLabel: 'Biryani, North Indian',
+    rating: 4.5,
+    reviewCount: 2840,
+    deliveryTime: '25–35 min',
+    deliveryFee: 30,
+    minimumOrder: 150,
+    isVeg: false,
+    isPureVeg: false,
+    distance: '1.2 km',
+    isOpen: true,
+    imageEmoji: '🍛',
+    tags: ['Bestseller', 'Popular'],
+    offers: ['20% off up to ₹100', 'Free delivery above ₹299'],
+    menu: [
+      { id: 'item_001', name: 'Chicken Dum Biryani', description: 'Slow-cooked dum biryani with tender chicken and aromatic spices', price: 280, category: 'Biryani', isVeg: false, isPopular: true, imageEmoji: '🍛', addons: [{ id: 'addon_001', name: 'Raita', price: 30 }, { id: 'addon_002', name: 'Salan', price: 40 }] },
+      { id: 'item_002', name: 'Veg Dum Biryani', description: 'Fragrant basmati with fresh vegetables and whole spices', price: 220, category: 'Biryani', isVeg: true, isPopular: true, imageEmoji: '🥘', addons: [{ id: 'addon_003', name: 'Raita', price: 30 }] },
+      { id: 'item_003', name: 'Mutton Biryani', description: 'Tender mutton pieces cooked in rich masala with aged basmati', price: 340, category: 'Biryani', isVeg: false, isPopular: false, imageEmoji: '🍛', addons: [] },
+      { id: 'item_004', name: 'Dal Makhani', description: 'Creamy black lentils slow-cooked overnight', price: 180, category: 'Mains', isVeg: true, isPopular: true, imageEmoji: '🫕', addons: [{ id: 'addon_004', name: 'Butter Naan', price: 40 }] },
+      { id: 'item_005', name: 'Shahi Paneer', description: 'Cottage cheese in rich cashew and tomato gravy', price: 240, category: 'Mains', isVeg: true, isPopular: false, imageEmoji: '🧀', addons: [] },
+    ],
+  },
+  {
+    id: 'rest_002',
+    name: 'Pizza Express',
+    cuisine: CuisineTypeEnum.ITALIAN,
+    cuisineLabel: 'Pizza, Italian',
+    rating: 4.3,
+    reviewCount: 1560,
+    deliveryTime: '30–40 min',
+    deliveryFee: 40,
+    minimumOrder: 200,
+    isVeg: false,
+    isPureVeg: false,
+    distance: '0.8 km',
+    isOpen: true,
+    imageEmoji: '🍕',
+    tags: ['Trending'],
+    offers: ['Buy 1 Get 1 on medium pizzas'],
+    menu: [
+      { id: 'item_010', name: 'Margherita Pizza', description: 'Classic tomato, fresh mozzarella, basil on thin crust', price: 299, category: 'Pizza', isVeg: true, isPopular: true, imageEmoji: '🍕', addons: [{ id: 'addon_010', name: 'Extra Cheese', price: 60 }] },
+      { id: 'item_011', name: 'BBQ Chicken Pizza', description: 'Smoky BBQ sauce, chicken, onions, peppers', price: 380, category: 'Pizza', isVeg: false, isPopular: true, imageEmoji: '🍕', addons: [] },
+      { id: 'item_012', name: 'Pesto Veggie Pizza', description: 'Basil pesto, roasted vegetables, parmesan', price: 340, category: 'Pizza', isVeg: true, isPopular: false, imageEmoji: '🍕', addons: [] },
+      { id: 'item_013', name: 'Garlic Bread', description: 'Crispy garlic butter bread with herbs', price: 149, category: 'Sides', isVeg: true, isPopular: true, imageEmoji: '🥖', addons: [{ id: 'addon_011', name: 'Dip', price: 20 }] },
+      { id: 'item_014', name: 'Tiramisu', description: 'Classic Italian dessert with mascarpone and coffee', price: 180, category: 'Desserts', isVeg: true, isPopular: false, imageEmoji: '🍰', addons: [] },
+    ],
+  },
+  {
+    id: 'rest_003',
+    name: 'Burger Factory',
+    cuisine: CuisineTypeEnum.AMERICAN,
+    cuisineLabel: 'Burgers, American',
+    rating: 4.2,
+    reviewCount: 980,
+    deliveryTime: '20–30 min',
+    deliveryFee: 25,
+    minimumOrder: 120,
+    isVeg: false,
+    isPureVeg: false,
+    distance: '1.5 km',
+    isOpen: true,
+    imageEmoji: '🍔',
+    tags: ['Fast Delivery'],
+    offers: ['Flat ₹50 off on ₹250+'],
+    menu: [
+      { id: 'item_020', name: 'Classic Smash Burger', description: 'Double smashed patty, cheddar, secret sauce, brioche bun', price: 260, category: 'Burgers', isVeg: false, isPopular: true, imageEmoji: '🍔', addons: [{ id: 'addon_020', name: 'Extra Patty', price: 80 }, { id: 'addon_021', name: 'Cheese Slice', price: 30 }] },
+      { id: 'item_021', name: 'Crispy Chicken Burger', description: 'Buttermilk fried chicken, coleslaw, pickles', price: 240, category: 'Burgers', isVeg: false, isPopular: true, imageEmoji: '🍔', addons: [] },
+      { id: 'item_022', name: 'Veggie Delight Burger', description: 'Grilled mushroom & black bean patty, avocado spread', price: 220, category: 'Burgers', isVeg: true, isPopular: false, imageEmoji: '🍔', addons: [] },
+      { id: 'item_023', name: 'Loaded Fries', description: 'Crispy fries with cheese sauce, jalapeños, sour cream', price: 180, category: 'Sides', isVeg: true, isPopular: true, imageEmoji: '🍟', addons: [] },
+      { id: 'item_024', name: 'Chocolate Shake', description: 'Thick handcrafted chocolate milkshake', price: 150, category: 'Beverages', isVeg: true, isPopular: true, imageEmoji: '🥤', addons: [] },
+    ],
+  },
+  {
+    id: 'rest_004',
+    name: 'Sushi Saga',
+    cuisine: CuisineTypeEnum.JAPANESE,
+    cuisineLabel: 'Sushi, Japanese',
+    rating: 4.6,
+    reviewCount: 720,
+    deliveryTime: '35–50 min',
+    deliveryFee: 60,
+    minimumOrder: 400,
+    isVeg: false,
+    isPureVeg: false,
+    distance: '2.1 km',
+    isOpen: true,
+    imageEmoji: '🍣',
+    tags: ['Premium', 'New'],
+    offers: ['15% off on orders above ₹800'],
+    menu: [
+      { id: 'item_030', name: 'Salmon Nigiri (4 pcs)', description: 'Fresh Atlantic salmon over seasoned sushi rice', price: 420, category: 'Nigiri', isVeg: false, isPopular: true, imageEmoji: '🍣', addons: [] },
+      { id: 'item_031', name: 'Dragon Roll (8 pcs)', description: 'Shrimp tempura inside, avocado & tobiko on top', price: 560, category: 'Rolls', isVeg: false, isPopular: true, imageEmoji: '🍱', addons: [] },
+      { id: 'item_032', name: 'Veg Avocado Roll (6 pcs)', description: 'Avocado, cucumber, cream cheese in nori', price: 380, category: 'Rolls', isVeg: true, isPopular: false, imageEmoji: '🥑', addons: [] },
+      { id: 'item_033', name: 'Miso Soup', description: 'Traditional Japanese clear miso broth with tofu', price: 120, category: 'Soups', isVeg: true, isPopular: true, imageEmoji: '🍜', addons: [] },
+      { id: 'item_034', name: 'Mochi Ice Cream (3 pcs)', description: 'Assorted flavoured mochi ice cream', price: 220, category: 'Desserts', isVeg: true, isPopular: false, imageEmoji: '🍡', addons: [] },
+    ],
+  },
+  {
+    id: 'rest_005',
+    name: 'Tandoor Nights',
+    cuisine: CuisineTypeEnum.INDIAN,
+    cuisineLabel: 'Tandoor, North Indian, Kebabs',
+    rating: 4.4,
+    reviewCount: 1890,
+    deliveryTime: '30–45 min',
+    deliveryFee: 35,
+    minimumOrder: 200,
+    isVeg: false,
+    isPureVeg: false,
+    distance: '0.6 km',
+    isOpen: false,
+    imageEmoji: '🔥',
+    tags: ['Highly Rated'],
+    offers: ['Free naan on orders above ₹500'],
+    menu: [
+      { id: 'item_040', name: 'Chicken Tikka', description: 'Succulent marinated chicken cooked in clay oven', price: 320, category: 'Kebabs', isVeg: false, isPopular: true, imageEmoji: '🍗', addons: [{ id: 'addon_040', name: 'Mint Chutney', price: 20 }] },
+      { id: 'item_041', name: 'Paneer Tikka', description: 'Cottage cheese marinated in spiced yoghurt and grilled', price: 280, category: 'Kebabs', isVeg: true, isPopular: true, imageEmoji: '🧀', addons: [] },
+      { id: 'item_042', name: 'Seekh Kebab', description: 'Minced lamb with spices, cooked on skewer', price: 360, category: 'Kebabs', isVeg: false, isPopular: false, imageEmoji: '🍢', addons: [] },
+      { id: 'item_043', name: 'Butter Naan', description: 'Freshly baked leavened bread with butter', price: 60, category: 'Breads', isVeg: true, isPopular: true, imageEmoji: '🫓', addons: [] },
+      { id: 'item_044', name: 'Gulab Jamun', description: 'Soft milk-solid dumplings in rose-flavoured sugar syrup', price: 100, category: 'Desserts', isVeg: true, isPopular: true, imageEmoji: '🍮', addons: [] },
+    ],
+  },
+  {
+    id: 'rest_006',
+    name: 'The Rolling Pin',
+    cuisine: CuisineTypeEnum.CONTINENTAL,
+    cuisineLabel: 'Bakery, Continental, Desserts',
+    rating: 4.7,
+    reviewCount: 2100,
+    deliveryTime: '25–40 min',
+    deliveryFee: 45,
+    minimumOrder: 250,
+    isVeg: true,
+    isPureVeg: true,
+    distance: '1.8 km',
+    isOpen: true,
+    imageEmoji: '🥐',
+    tags: ['Pure Veg', 'Trending', 'Bestseller'],
+    offers: ['₹100 off on ₹600+'],
+    menu: [
+      { id: 'item_050', name: 'Croissant Sandwich', description: 'Buttery croissant with brie, fig jam, and arugula', price: 280, category: 'Sandwiches', isVeg: true, isPopular: true, imageEmoji: '🥐', addons: [] },
+      { id: 'item_051', name: 'Red Velvet Cake Slice', description: 'Classic moist red velvet with cream cheese frosting', price: 180, category: 'Cakes', isVeg: true, isPopular: true, imageEmoji: '🎂', addons: [] },
+      { id: 'item_052', name: 'Belgian Waffle', description: 'Crispy outside, fluffy inside, served with maple syrup and berries', price: 220, category: 'Waffles', isVeg: true, isPopular: false, imageEmoji: '🧇', addons: [{ id: 'addon_050', name: 'Ice Cream Scoop', price: 60 }] },
+      { id: 'item_053', name: 'Cappuccino', description: 'Double shot espresso with velvety steamed milk foam', price: 150, category: 'Beverages', isVeg: true, isPopular: true, imageEmoji: '☕', addons: [] },
+      { id: 'item_054', name: 'Avocado Toast', description: 'Smashed avocado on sourdough with cherry tomatoes and feta', price: 260, category: 'Snacks', isVeg: true, isPopular: false, imageEmoji: '🥑', addons: [] },
+    ],
+  },
+];
+
+// ─── Ride History ─────────────────────────────────────────────────────────────
+export const DUMMY_RIDE_HISTORY = [
+  { id: 'ride_001', vehicleType: VehicleTypeEnum.SEDAN, pickup: 'Bandra West', destination: 'BKC', fare: 185, distance: '5.2 km', duration: '22 min', date: '2024-01-20T18:30:00', status: OrderStatusEnum.DELIVERED, driverName: 'Ramesh Patil', driverRating: 4.8, paymentMethod: PaymentMethodEnum.UPI },
+  { id: 'ride_002', vehicleType: VehicleTypeEnum.AUTO, pickup: 'Andheri Station', destination: 'Versova Beach', fare: 68, distance: '3.1 km', duration: '14 min', date: '2024-01-19T09:15:00', status: OrderStatusEnum.DELIVERED, driverName: 'Santosh Kumar', driverRating: 4.6, paymentMethod: PaymentMethodEnum.CASH },
+  { id: 'ride_003', vehicleType: VehicleTypeEnum.BIKE, pickup: 'Dadar TT Circle', destination: 'Shivaji Park', fare: 45, distance: '1.8 km', duration: '8 min', date: '2024-01-18T07:45:00', status: OrderStatusEnum.DELIVERED, driverName: 'Vijay More', driverRating: 4.9, paymentMethod: PaymentMethodEnum.WALLET },
+  { id: 'ride_004', vehicleType: VehicleTypeEnum.XL, pickup: 'Chhatrapati Shivaji Airport', destination: 'Colaba', fare: 540, distance: '18.4 km', duration: '48 min', date: '2024-01-15T22:10:00', status: OrderStatusEnum.DELIVERED, driverName: 'Anil Sharma', driverRating: 4.7, paymentMethod: PaymentMethodEnum.CREDIT_CARD },
+  { id: 'ride_005', vehicleType: VehicleTypeEnum.MINI, pickup: 'Juhu Beach', destination: 'Linking Road', fare: 95, distance: '3.6 km', duration: '18 min', date: '2024-01-14T15:20:00', status: OrderStatusEnum.CANCELLED, driverName: 'Mahesh Yadav', driverRating: 4.4, paymentMethod: PaymentMethodEnum.UPI },
+];
+
+// ─── Food Order History ───────────────────────────────────────────────────────
+export const DUMMY_ORDER_HISTORY = [
+  { id: 'ord_001', restaurantName: 'Biryani Blues', restaurantEmoji: '🍛', items: [{ name: 'Chicken Dum Biryani', qty: 1 }, { name: 'Raita', qty: 1 }], total: 310, date: '2024-01-20T13:00:00', status: OrderStatusEnum.DELIVERED, deliveryTime: '28 min', paymentMethod: PaymentMethodEnum.UPI },
+  { id: 'ord_002', restaurantName: 'Burger Factory', restaurantEmoji: '🍔', items: [{ name: 'Classic Smash Burger', qty: 2 }, { name: 'Loaded Fries', qty: 1 }], total: 700, date: '2024-01-18T20:30:00', status: OrderStatusEnum.DELIVERED, deliveryTime: '35 min', paymentMethod: PaymentMethodEnum.WALLET },
+  { id: 'ord_003', restaurantName: 'The Rolling Pin', restaurantEmoji: '🥐', items: [{ name: 'Cappuccino', qty: 2 }, { name: 'Avocado Toast', qty: 1 }], total: 560, date: '2024-01-17T08:45:00', status: OrderStatusEnum.DELIVERED, deliveryTime: '31 min', paymentMethod: PaymentMethodEnum.CREDIT_CARD },
+  { id: 'ord_004', restaurantName: 'Pizza Express', restaurantEmoji: '🍕', items: [{ name: 'Margherita Pizza', qty: 1 }, { name: 'Garlic Bread', qty: 1 }], total: 448, date: '2024-01-16T19:15:00', status: OrderStatusEnum.CANCELLED, deliveryTime: '-', paymentMethod: PaymentMethodEnum.DEBIT_CARD },
+];
+
+// ─── Parcel History ───────────────────────────────────────────────────────────
+export const DUMMY_PARCEL_HISTORY = [
+  { id: 'parcel_001', packageType: PackageTypeEnum.DOCUMENTS, pickup: 'Bandra West', drop: 'Fort, CST Area', weight: 0.5, fare: 89, date: '2024-01-20T10:00:00', status: OrderStatusEnum.DELIVERED, riderName: 'Kishore Patil', distance: '9.2 km' },
+  { id: 'parcel_002', packageType: PackageTypeEnum.ELECTRONICS, pickup: 'Andheri East', drop: 'Powai', weight: 2.5, fare: 145, date: '2024-01-17T14:30:00', status: OrderStatusEnum.DELIVERED, riderName: 'Suresh Nair', distance: '7.8 km' },
+  { id: 'parcel_003', packageType: PackageTypeEnum.FRAGILE, pickup: 'Colaba', drop: 'Worli Sea Face', weight: 1.2, fare: 110, date: '2024-01-15T11:20:00', status: OrderStatusEnum.CANCELLED, riderName: 'Deepak Verma', distance: '6.4 km' },
+];
+
+// ─── Notifications ────────────────────────────────────────────────────────────
+export const DUMMY_NOTIFICATIONS = [
+  { id: 'notif_001', type: NotificationTypeEnum.RIDE_UPDATE, title: 'Your ride is arriving!', body: 'Ramesh is 2 minutes away in his Honda City', time: '2 min ago', isRead: false },
+  { id: 'notif_002', type: NotificationTypeEnum.PROMO, title: '20% OFF on your next food order', body: 'Use code SWIB20. Valid till midnight tonight', time: '1 hr ago', isRead: false },
+  { id: 'notif_003', type: NotificationTypeEnum.FOOD_UPDATE, title: 'Order delivered! 🎉', body: 'Your Biryani Blues order has been delivered. Rate your experience', time: '3 hrs ago', isRead: true },
+  { id: 'notif_004', type: NotificationTypeEnum.REWARD, title: 'You earned 240 points!', body: "Congratulations! You're just 760 points away from Platinum", time: '5 hrs ago', isRead: true },
+  { id: 'notif_005', type: NotificationTypeEnum.PAYMENT, title: 'Payment successful ₹185', body: 'Your ride payment was processed via UPI', time: '1 day ago', isRead: true },
+  { id: 'notif_006', type: NotificationTypeEnum.PARCEL_UPDATE, title: 'Parcel picked up', body: 'Your documents parcel is on the way to CST Area', time: '2 days ago', isRead: true },
+  { id: 'notif_007', type: NotificationTypeEnum.PROMO, title: 'Weekend special — Free delivery!', body: 'Enjoy free delivery on all food orders this Saturday & Sunday', time: '3 days ago', isRead: true },
+  { id: 'notif_008', type: NotificationTypeEnum.SYSTEM, title: 'Swibber updated to v2.0', body: 'New features: Schedule rides, Group orders, Split payments', time: '5 days ago', isRead: true },
+];
+
+// ─── Promo Banners ────────────────────────────────────────────────────────────
+export const DUMMY_PROMO_BANNERS = [
+  { id: 'promo_001', title: 'Ride & Save', subtitle: 'Get 30% off on 3 rides this week', couponCode: 'RIDE30', discount: '30%', expiresIn: '2 days', gradient: ['#4C35E8', '#00D4FF'] as string[], serviceType: ServiceTypeEnum.RIDE, isActive: true },
+  { id: 'promo_002', title: 'Free Delivery', subtitle: 'Zero delivery fee on all food orders today', couponCode: 'FREEDEL', discount: 'FREE', expiresIn: 'Today', gradient: ['#FF6B6B', '#FF9500'] as string[], serviceType: ServiceTypeEnum.FOOD, isActive: true },
+  { id: 'promo_003', title: 'Gold Upgrade', subtitle: 'Upgrade to Gold and get 15% cashback', couponCode: 'UPGOLD', discount: '15%', expiresIn: '7 days', gradient: ['#FFD700', '#FF9500'] as string[], serviceType: ServiceTypeEnum.FOOD, isActive: true },
+  { id: 'promo_004', title: 'First Parcel Free', subtitle: 'Send your first parcel absolutely free', couponCode: 'SEND1', discount: '100%', expiresIn: '30 days', gradient: ['#00C853', '#00D4FF'] as string[], serviceType: ServiceTypeEnum.PARCEL, isActive: true },
+];
+
+// ─── Wallet Transactions ──────────────────────────────────────────────────────
+export const DUMMY_TRANSACTIONS = [
+  { id: 'txn_001', type: TransactionTypeEnum.DEBIT, amount: 185, description: 'Ride - Bandra to BKC', serviceType: ServiceTypeEnum.RIDE, date: '2024-01-20T18:30:00', status: 'success' },
+  { id: 'txn_002', type: TransactionTypeEnum.CASHBACK, amount: 18.5, description: 'Cashback on ride', serviceType: ServiceTypeEnum.RIDE, date: '2024-01-20T18:31:00', status: 'success' },
+  { id: 'txn_003', type: TransactionTypeEnum.DEBIT, amount: 700, description: 'Food - Burger Factory', serviceType: ServiceTypeEnum.FOOD, date: '2024-01-18T20:30:00', status: 'success' },
+  { id: 'txn_004', type: TransactionTypeEnum.CREDIT, amount: 500, description: 'Wallet top-up via UPI', serviceType: undefined, date: '2024-01-17T11:00:00', status: 'success' },
+  { id: 'txn_005', type: TransactionTypeEnum.REFUND, amount: 448, description: 'Refund - Pizza Express order', serviceType: ServiceTypeEnum.FOOD, date: '2024-01-16T20:00:00', status: 'success' },
+  { id: 'txn_006', type: TransactionTypeEnum.DEBIT, amount: 89, description: 'Parcel - Bandra to CST', serviceType: ServiceTypeEnum.PARCEL, date: '2024-01-15T10:00:00', status: 'success' },
+  { id: 'txn_007', type: TransactionTypeEnum.CASHBACK, amount: 70, description: 'Gold member cashback', serviceType: undefined, date: '2024-01-14T00:00:00', status: 'success' },
+  { id: 'txn_008', type: TransactionTypeEnum.CREDIT, amount: 1000, description: 'Wallet top-up via Credit Card', serviceType: undefined, date: '2024-01-10T14:30:00', status: 'success' },
+];
+
+// ─── Quick Ride Suggestions ───────────────────────────────────────────────────
+export const DUMMY_RIDE_SUGGESTIONS = [
+  { id: 'sug_001', label: 'Bandra Station', address: 'Bandra Railway Station, WR', lat: 19.0543, lng: 72.8388, emoji: '🚉' },
+  { id: 'sug_002', label: 'BKC Office', address: 'Bandra Kurla Complex, Mumbai', lat: 19.0655, lng: 72.8676, emoji: '🏢' },
+  { id: 'sug_003', label: 'Chhatrapati Shivaji Airport', address: 'Mumbai International Airport', lat: 19.0895, lng: 72.8656, emoji: '✈️' },
+  { id: 'sug_004', label: 'Colaba Causeway', address: 'Colaba, South Mumbai', lat: 18.9171, lng: 72.8311, emoji: '🛍️' },
+];

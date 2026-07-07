@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "firebase": "^12.13.0",
+    "redis": "^5.12.1",
+    "typescript": "^6.0.3"
+  },
+  "devDependencies": {
+    "@types/redis": "^4.0.10"
+  }
+}

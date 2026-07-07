@@ -1,0 +1,241 @@
+# =============================================================================
+# SWIBBER MONOREPO — .gitignore
+# =============================================================================
+
+
+# =============================================================================
+# DEPENDENCIES
+# =============================================================================
+node_modules/
+.pnp
+.pnp.js
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+
+
+# =============================================================================
+# ENVIRONMENT & SECRETS — never commit credentials
+# =============================================================================
+.env
+.env.local
+.env.development
+.env.development.local
+.env.test
+.env.test.local
+.env.production
+.env.production.local
+.env.staging
+.env*.local
+
+# Firebase service account keys
+*-firebase-adminsdk-*.json
+firebase-service-account*.json
+google-services-private-key*.json
+serviceAccountKey*.json
+serviceAccount*.json
+
+# Razorpay & payment secrets
+razorpay.config.local.*
+razorpay-secrets.*
+payment.secrets.*
+
+# Keystores, certificates & signing keys
+*.keystore
+*.jks
+*.p12
+*.cer
+*.mobileprovision
+*.certSigningRequest
+*.p8
+GoogleService-Info.plist      # prod variant — keep only the template if used
+
+
+# =============================================================================
+# TYPESCRIPT BUILD OUTPUT
+# =============================================================================
+dist/
+build/
+out/
+*.js.map
+*.d.ts.map
+tsconfig.tsbuildinfo
+*.tsbuildinfo
+
+
+# =============================================================================
+# BACKEND
+# =============================================================================
+backend/dist/
+backend/build/
+backend/coverage/
+backend/*.log
+
+
+# =============================================================================
+# EXPO
+# =============================================================================
+.expo/
+.expo-shared/
+frontend/.expo/
+frontend/.expo-shared/
+
+# Expo web build output
+frontend/web-build/
+frontend/dist/
+
+# Expo OTA update metadata
+.easignore
+
+
+# =============================================================================
+# REACT NATIVE / METRO CACHES
+# =============================================================================
+.metro-health-check*
+.metro-bundler-cache/
+frontend/.metro-health-check*
+
+# React Native Flipper
+android/.flipper/
+
+# Hermes compiled bytecode
+*.hbc
+
+
+# =============================================================================
+# ANDROID BUILD ARTIFACTS & GRADLE CACHES
+# =============================================================================
+frontend/android/app/build/
+frontend/android/build/
+frontend/android/.gradle/
+frontend/android/gradle/
+frontend/android/gradlew
+frontend/android/gradlew.bat
+frontend/android/local.properties
+frontend/android/.idea/
+frontend/android/captures/
+frontend/android/release/
+# frontend/google-services.json — intentionally tracked for EAS cloud builds
+
+# Generated asset files
+frontend/android/app/src/main/assets/index.android.bundle
+frontend/android/app/src/main/assets/index.android.bundle.meta
+
+# Global Gradle cache (user-level)
+.gradle/
+
+
+# =============================================================================
+# iOS BUILD ARTIFACTS
+# =============================================================================
+frontend/ios/build/
+frontend/ios/DerivedData/
+frontend/ios/Pods/
+frontend/ios/*.xcworkspace/xcuserdata/
+frontend/ios/*.xcodeproj/xcuserdata/
+frontend/ios/*.xcodeproj/project.xcworkspace/xcuserdata/
+frontend/ios/.xcode.env.local
+
+# CocoaPods
+frontend/ios/Podfile.lock      # uncomment if you don't want to pin pod versions
+
+# Fastlane generated
+frontend/ios/fastlane/report.xml
+frontend/ios/fastlane/screenshots
+frontend/ios/fastlane/test_output
+
+
+# =============================================================================
+# LOGS
+# =============================================================================
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+crash.log
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+
+# =============================================================================
+# NPM / YARN / PNPM CACHES
+# =============================================================================
+.npm/
+.pnpm-store/
+.yarn-integrity
+
+
+# =============================================================================
+# EDITOR — VS Code temporary & workspace files
+# =============================================================================
+.vscode/
+!.vscode/extensions.json      # keep shared extension recommendations
+!.vscode/settings.json        # keep shared workspace settings if desired
+*.code-workspace
+.history/
+
+
+# =============================================================================
+# OS FILES
+# =============================================================================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# Linux
+*~
+
+
+# =============================================================================
+# TESTING & COVERAGE
+# =============================================================================
+coverage/
+.nyc_output/
+test-results/
+playwright-report/
+playwright/.cache/
+
+
+# =============================================================================
+# MISC BUILD / TOOL ARTIFACTS
+# =============================================================================
+.turbo/
+.cache/
+.parcel-cache/
+.next/
+.nuxt/
+.docusaurus/
+storybook-static/
+*.tgz
+*.tar.gz
+
+
+# =============================================================================
+# WHAT TO KEEP (explicit negations / reminders)
+# package.json, package-lock.json, yarn.lock, pnpm-lock.yaml — committed
+# src/ — committed
+# assets/ — committed
+# *.config.js / *.config.ts — committed
+# app.json / app.config.js — committed (Expo config, no secrets)
+# babel.config.js / metro.config.js — committed
+# tsconfig.json — committed
+# .env.example / .env.template — committed (no real values)
+# =============================================================================
+!.env.example
+!.env.template
