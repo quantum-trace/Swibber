@@ -240,7 +240,7 @@ swibber/
 
 ```bash
 git clone https://github.com/quantum-trace/Swibber.git
-cd swibber
+cd Swibber
 ```
 
 ### 2. Backend Setup
