@@ -239,7 +239,7 @@ swibber/
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/Shubham2310D/swibber.git
+git clone https://github.com/quantum-trace/Swibber.git
 cd swibber
 ```
 
