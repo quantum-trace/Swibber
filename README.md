@@ -186,9 +186,8 @@ swibber/
 
 ### Home & Profile
 <p>
-  <img src="screenshots/02_home.jpeg" width="260" alt="Home Dashboard"/>
-  &nbsp;&nbsp;&nbsp;
-  <img src="screenshots/03_profile.jpeg" width="260" alt="Profile & Membership"/>
+  <img width="278" height="602" alt="image" src="https://github.com/user-attachments/assets/b661f306-b138-4c28-b508-4786f9f59f39" />
+  <img width="283" height="612" alt="image" src="https://github.com/user-attachments/assets/4443c862-fd6e-4661-aeb5-2c76fb060e16" />
 </p>
 
 ### Ride Booking
